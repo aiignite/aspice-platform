@@ -1,7 +1,7 @@
 import { useEffect, useState, useCallback } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Card, Row, Col, Tag, Button, Modal, Form, Input, Select, message } from "antd";
-import { ArrowLeftOutlined, PlusOutlined } from "@ant-design/icons";
+import { ArrowLeftOutlined, PlusOutlined, SettingOutlined } from "@ant-design/icons";
 import { projectApi, taskApi } from "../services/api";
 
 const { Option } = Select;
@@ -105,9 +105,14 @@ export default function ProjectDetail() {
           </Space>
         }
         extra={
-          <Button type="primary" icon={<PlusOutlined />} onClick={() => setModalVisible(true)}>
-            新建任务
-          </Button>
+          <Space>
+            <Button icon={<SettingOutlined />} onClick={() => navigate(`/projects/${id}/aspice`)}>
+              ASPICE 配置
+            </Button>
+            <Button type="primary" icon={<PlusOutlined />} onClick={() => setModalVisible(true)}>
+              新建任务
+            </Button>
+          </Space>
         }
       >
         <Row gutter={16} style={{ marginBottom: 16 }}>
